@@ -12,7 +12,43 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/hello', function () {
+    return 'Hello World';
+    });
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/world', function () {
+    return 'World';
+    });
+
+Route::get('/selamat', function () {
+return 'Selamat Datang';
 });
+
+Route::get('/about', function () {
+    return 'Nama: Muhammad khalid Atthoriq <br>
+    NIM: 2341720114';
+    });
+
+Route::get('/user/{name}', function ($name) {
+    return 'Nama saya '.$name;
+    });
+
+Route::get('/posts/{post}/comments/{comment}', function
+($postId, $commentId) {
+return 'Pos ke-'.$postId." Komentar ke-: ".$commentId;
+});
+
+Route::get('/articles/{id}', function() {
+    $postId = request('id');
+    return 'halaman ke-'.$postId;
+});
+
+Route::get('/user/{name?}', function($name =null) {
+    return 'Nama saya '.$name;
+});
+
+Route::get('/user/{name?}', function ($name='John') {
+    return 'Nama saya '.$name;
+    });
+
+Route::View('/welcome', 'yes'); 
